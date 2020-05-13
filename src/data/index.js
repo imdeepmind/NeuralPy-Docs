@@ -17,15 +17,57 @@ export const navLinks = [
     urls: [
       {
         title: "Models",
-        link: "#models"
+        link: "#models",
+        urls: [
+          {
+            title: "Sequential",
+            link: "#sequential"
+          }
+        ]
       },
       {
         title: "Layers",
-        link: "#layers"
+        link: "#layers",
+        urls: [
+          {
+            title: "Linear",
+            link: "#linear"
+          },
+          {
+            title: "Convolutional",
+            link: "#convolutional"
+          },
+          {
+            title: "Pooling",
+            link: "#pooling"
+          },
+        ]
       },
       {
         title: "Activation Functions",
-        link: "#activation-functions"
+        link: "#activation-functions",
+        urls: [
+          {
+            title: "Softmax",
+            link: "#softmax"
+          },
+          {
+            title: "Sigmoid",
+            link: "#sigmoid"
+          },
+          {
+            title: "Tanh",
+            link: "#tanh"
+          },
+          {
+            title: "ReLU",
+            link: "#relu"
+          },
+          {
+            title: "LeakyReLU",
+            link: "#leaky-relu"
+          },
+        ]
       },
       {
         title: "Regularization",
@@ -33,11 +75,47 @@ export const navLinks = [
       },
       {
         title: "Loss Functions",
-        link: "#loss-functions"
+        link: "#loss-functions",
+        urls: [
+          {
+            title: "MSELoss",
+            link: "#mse-loss"
+          },
+          {
+            title: "CrossEntropyLoss",
+            link: "#cross-entropy-loss"
+          },
+          {
+            title: "NLLLoss",
+            link: "#nll-loss"
+          },
+          {
+            title: "BCELoss",
+            link: "#bce-loss"
+          }
+        ]
       },
       {
         title: "Optimizers",
-        link: "#optimizers"
+        link: "#optimizers",
+        urls: [
+          {
+            title: "Adam",
+            link: "#adam"
+          },
+          {
+            title: "SGD",
+            link: "#sgd"
+          },
+          {
+            title: "Adagrad",
+            link: "#adagrad"
+          },
+          {
+            title: "RMSprop",
+            link: "#rms-prop"
+          }
+        ]
       }
     ]
   },
