@@ -126,3 +126,12 @@ nav ul li ul li{
 .error-page h2{
   margin-bottom: 10px;
 }
+
+.loading-page{
+  text-align: center;
+  padding: 25px;
+}
+
+.loading-page h2{
+  margin-bottom: 10px;
+}

@@ -2,6 +2,8 @@ import React from 'react';
 
 import Error from "../../Components/Error";
 
+import Loading from "../../Components/Loading";
+
 import Header from "../../Components/Header";
 import Navigation from "../../Components/Navigation";
 import Contents from "../../Components/Contents";
@@ -10,9 +12,7 @@ const Home = props => {
   const { contents, loading, error } = props;
 
   const buildPage = () => {
-    if (loading) {
-      return null;
-    }
+    if (loading) return <Loading />
 
     if (error) return <Error error={error} />
 
