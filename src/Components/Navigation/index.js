@@ -17,7 +17,7 @@ const buildLink = links => {
 
 const Navigation = ({ navLinks }) => {
   return (
-    <nav>
+    <nav className="navigation">
       {buildLink(navLinks)}
     </nav>
   )

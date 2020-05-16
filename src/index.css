@@ -1,3 +1,5 @@
+/*************DEFAULTS********************/
+
 * {
   font-family: "Montserrat", sans-serif;
   padding: 0;
@@ -36,41 +38,7 @@ h1{
   font-size: 3rem;
 }
 
-
-.header{
-  width: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.header p{
-  margin-top: 20px;
-}
-
-nav {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-nav ul {
-  list-style: none;
-}
-
-nav ul li{
-  margin-top: 7px;
-  margin-bottom: 7px;
-}
-
-nav ul li ul li{
-  padding-left: 20px;
-}
-
+/****************REUSABLE CLASSES*********************/
 
 .container {
   width: 100%;
@@ -111,6 +79,27 @@ nav ul li ul li{
 }
 
 
+/******************PAGES**********************/
+
+/*BRAND HEADER*/
+.header{
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.header p{
+  margin-top: 20px;
+}
+
+
+/*ERROR PAGE*/
 .error-page{
   width: 100%;
   text-align: center;
@@ -121,6 +110,7 @@ nav ul li ul li{
   margin-bottom: 10px;
 }
 
+/*LOADING PAGE*/
 .loading-page{
   text-align: center;
   padding: 25px;
@@ -129,3 +119,25 @@ nav ul li ul li{
 .loading-page h2{
   margin-bottom: 10px;
 }
+
+/*NAVIGATION*/
+nav.navigation {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+nav.navigation ul {
+  list-style: none;
+}
+
+nav.navigation ul li{
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+nav.navigation ul li ul li{
+  padding-left: 20px;
+}
+
+
+/*CONTENTS*/
