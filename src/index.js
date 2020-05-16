@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
 import App from './App';
+
 import * as serviceWorker from './serviceWorker';
+
+import './Assets/index.css';
+import './Assets/monokai-sublime.css'
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import Highlight from "react-highlight";
 
 const Contents = props => {
   const { content } = props;
-  console.log(content);
+  
   return (
     <div className="content-page">
       {content && content.map(val => {
@@ -15,8 +16,26 @@ const Contents = props => {
                 <div className="content-content" key={index}>
                   <h3 className="content-title">{item.title}</h3>
                   <p className="content-text">{item.text}</p>
-                  {item.code && (<code className="content-code">{item.code}</code>)}
-                  {item["further-reading"] && <a className="content-further-reading-url" href={item["further-reading"].url}>{item["further-reading"].text}</a>}
+                  {item.code && (
+                    <>
+                      <h5 className="content-subject-title">Example Code</h5>
+                      <Highlight className="content-code" language="javascript">
+                        {`${item.code}`}
+                      </Highlight>
+                    </>
+                  )}
+                  {item.links && (
+                    <>
+                      <h5 className="content-subject-title">Further Readings</h5>
+                      <ul className="content-links">
+                      {item.links.map((link, index) => {
+                        return (
+                          <li key={index}><a className="content-links-item" href={link.url}>{link.title}</a></li>
+                        )
+                      })}
+                      </ul>
+                    </>
+                  )}
                 </div>
               )
             })}

@@ -172,5 +172,20 @@ nav.navigation ul li ul li{
 }
 
 .content-page .content-code{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
+.content-page .content-subject-title{
+  margin-top: 10px;
+}
+
+.content-page .content-links{
+  font-size: 0.9rem;
+  margin-top: 10px;
+  padding-left: 15px;
+}
+
+.content-page .content-links-item:hover{
+  font-weight: 400;
 }
