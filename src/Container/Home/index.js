@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Error from "../../Components/Error";
+
 import Header from "../../Components/Header";
 import Navigation from "../../Components/Navigation";
 import Contents from "../../Components/Contents";
@@ -12,9 +14,7 @@ const Home = props => {
       return null;
     }
 
-    if (error) {
-      return null;
-    }
+    if (error) return <Error error={error} />
 
     return (
       <div className="row">
