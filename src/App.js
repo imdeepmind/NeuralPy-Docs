@@ -5,7 +5,7 @@ import Home from "./Container/Home";
 
 const url = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/documentation-changes/docs/contents.json";
 
-const App = (props) => {
+const App = () => {
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

@@ -20,6 +20,7 @@ h6 {
 
 a, p, span{
   font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 strong, b, h1, h2, h3, h4, h5, h6{
@@ -123,7 +124,6 @@ h1{
 /*NAVIGATION*/
 nav.navigation {
   margin-top: 50px;
-  margin-bottom: 50px;
 }
 
 nav.navigation ul {
@@ -139,5 +139,38 @@ nav.navigation ul li ul li{
   padding-left: 20px;
 }
 
-
 /*CONTENTS*/
+.content-page{
+  margin-top: 50px;
+}
+
+.content-page .each-content{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+}
+
+.content-page .main-title{
+  margin-bottom: 15px;
+}
+
+.content-page .main-subtitle{
+  line-height: 25px;
+}
+
+.content-page .content-content{
+
+}
+
+.content-page .content-title{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.content-page .content-text{
+  font-size: 0.9rem;
+  line-height: 22px;
+}
+
+.content-page .content-code{
+
+}
