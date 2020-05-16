@@ -1,8 +1,6 @@
 import React from 'react'
 
-const Loading = (props) => {
-  const { error } = props;
-
+const Loading = () => {
   return (
     <div className="loading-page">
       <h2>Hold right</h2>
