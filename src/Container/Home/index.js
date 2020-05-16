@@ -19,7 +19,7 @@ const Home = props => {
     return (
       <div className="row">
         <div className="col-12 col-md-4 col-lg-3"><Navigation navLinks={content["navigation"]} /></div>
-        <div className="col-12 col-md-8 col-lg-9"><Contents /></div>
+        <div className="col-12 col-md-8 col-lg-9"><Contents content={content["content"]}/></div>
       </div>
     )
   }
