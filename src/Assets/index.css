@@ -126,6 +126,17 @@ nav.navigation {
   margin-top: 50px;
 }
 
+nav.navigation .nav-search{
+  width: 100%;
+  border: 1px solid #ee4c2c;
+  border-radius: 3px;
+  height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+  background: "#ee4c2c3d";
+}
+
 nav.navigation ul {
   list-style: none;
 }
