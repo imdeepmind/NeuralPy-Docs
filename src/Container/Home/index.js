@@ -9,7 +9,7 @@ import Navigation from "../../Components/Navigation";
 import Contents from "../../Components/Contents";
 
 const Home = props => {
-  const { contents, loading, error } = props;
+  const { content, loading, error } = props;
 
   const buildPage = () => {
     if (loading) return <Loading />
@@ -18,7 +18,7 @@ const Home = props => {
 
     return (
       <div className="row">
-        <div className="col-12 col-md-4 col-lg-3"><Navigation navLinks={contents["navigation"]} /></div>
+        <div className="col-12 col-md-4 col-lg-3"><Navigation navLinks={content["navigation"]} /></div>
         <div className="col-12 col-md-8 col-lg-9"><Contents /></div>
       </div>
     )

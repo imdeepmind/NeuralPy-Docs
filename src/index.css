@@ -36,12 +36,6 @@ h1{
   font-size: 3rem;
 }
 
-body{
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
 
 .header{
   width: 100%;
@@ -110,7 +104,7 @@ nav ul li ul li{
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1600px) {
   .container {
     max-width: 1320px;
   }

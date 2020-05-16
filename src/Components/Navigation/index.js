@@ -3,7 +3,7 @@ import React from "react";
 const buildLink = links => {
   return (
     <ul>
-      {links.map(val => {
+      {links && links.map(val => {
         return (
           <li key={val.link}>
             <a href={val.link}>{val.title}</a>
