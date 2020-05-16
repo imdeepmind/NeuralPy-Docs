@@ -1,27 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Axios from "axios";
 
-import Header from "./components/Header";
-import Navigation from "./components/Navigation";
+import Home from "./Container/Home";
 
-import { navLinks } from "./data";
+const url = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/documentation-changes/docs/contents.json";
 
-const App = () => {
+const App = (props) => {
+  const [content, setContent] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const loadContent = async () => {
+    setLoading(true);
+    try {
+      if (!content) {
+        const data = await Axios.get(url);
+
+        if (data && data.data) {
+          setContent(data.data);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      setError(error);
+    }
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    loadContent();
+  }, []);
+
   return (
-    <div className="App">
-      <Header />
-
-      <div class="row">
-
-        <div class="col-12 col-md-3">
-          <Navigation navLinks={navLinks} />
-        </div>
-
-        <div class="col-12 col-md-9">
-          <p>Context goes here</p>
-        </div>
-        
-      </div>
-    </div>
+    <Home
+      content={content}
+      loading={loading}
+      error={error}
+    />
   );
 }
 
