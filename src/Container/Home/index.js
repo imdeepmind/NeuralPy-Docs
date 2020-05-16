@@ -5,14 +5,29 @@ import Navigation from "../../Components/Navigation";
 import Contents from "../../Components/Contents";
 
 const Home = props => {
-  console.log(props);
+  const { contents, loading, error } = props;
+
+  const buildPage = () => {
+    if (loading) {
+      return null;
+    }
+
+    if (error) {
+      return null;
+    }
+
+    return (
+      <div className="row">
+        <div className="col-12 col-md-4 col-lg-3"><Navigation navLinks={contents["navigation"]} /></div>
+        <div className="col-12 col-md-8 col-lg-9"><Contents /></div>
+      </div>
+    )
+  }
+
   return (
     <div className="container">
       <Header />
-      <div className="row">
-        {/* <div className="col-12 col-md-4 col-lg-3"><Navigation /></div> */}
-        {/* <div className="col-12 col-md-8 col-lg-9"><Contents /></div> */}
-      </div>
+      {buildPage()}
     </div>
   )
 }
