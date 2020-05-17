@@ -1,8 +1,7 @@
 import React from 'react';
 import Highlight from "react-highlight";
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Element } from 'react-scroll'
  
-
 const Contents = props => {
   const { content } = props;
   

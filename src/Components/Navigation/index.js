@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link } from 'react-scroll'
  
-
 const buildLink = links => {
   return (
     <ul>
       {links && links.map(val => {
         return (
           <li key={val.link}>
-            <Link to={val.link} spy={true} smooth={true} offset={50} duration={500} >{val.title}</Link>
+            <Link to={val.link} spy={true} smooth={true} offset={-20} duration={500} >{val.title}</Link>
             {val.urls && val.urls.length > 0 && buildLink(val.urls)}
           </li>
         )
