@@ -135,6 +135,7 @@ nav.navigation .nav-search{
   padding-right: 5px;
   margin-bottom: 10px;
   background: "#ee4c2c3d";
+  outline: none;
 }
 
 nav.navigation ul {
