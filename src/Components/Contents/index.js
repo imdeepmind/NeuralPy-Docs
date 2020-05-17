@@ -1,5 +1,7 @@
 import React from 'react';
 import Highlight from "react-highlight";
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+ 
 
 const Contents = props => {
   const { content } = props;
@@ -8,7 +10,7 @@ const Contents = props => {
     <div className="content-page">
       {content && content.map(val => {
         return (
-          <div key={val.key} id={val.key} className="each-content">
+          <Element key={val.key} name={`#${val.key}`} className="each-content">
             <h2 className="main-title">{val.title}</h2>
             <p className="main-subtitle">{val.subtitle}</p>
             {val.contents && val.contents.map((item, index) => {
@@ -39,7 +41,7 @@ const Contents = props => {
                 </div>
               )
             })}
-          </div>
+          </Element>
         )
       })}
     </div>

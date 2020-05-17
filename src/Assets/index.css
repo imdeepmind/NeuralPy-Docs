@@ -151,6 +151,10 @@ nav.navigation ul li ul li{
   padding-left: 20px;
 }
 
+nav.navigation a{
+  cursor: pointer;
+}
+
 /*CONTENTS*/
 .content-page{
   margin-top: 50px;
