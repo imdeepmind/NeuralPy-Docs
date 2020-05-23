@@ -34,18 +34,46 @@ const Contents = props => {
     ) : null;
   }
 
-  const renderParagraphTitle = title => {
-    return <h4 className="para-title">{title}</h4>
+  const renderParagraphTitle = (title, index) => {
+    return <h4 key={index} className="para-title">{title}</h4>
+  }
+
+  const renderParagraphText = (text, index) => {
+    return <p key={index} className="para-text">{text}</p>
+  }
+
+  const renderParagraphList = (list, index) => {
+    return (<ul key={index}>
+      {list.map((item, i) => {
+        return <li key={i}>{item}</li>
+      })}
+    </ul>)
+  }
+
+  const renderParagraphCode = (code, index) => {
+    return (
+      <Highlight key={index} className="content-code" language="javascript">
+        {`${code}`}
+      </Highlight>
+    )
   }
 
   const renderParagraphs = paragraphs => {
     const paragraphItems = [];
 
-    return paragraphs && paragraphs.map(item => {
+    paragraphs && paragraphs.forEach((item, index) => {
       if (item["title"]) {
-        paragraphItems.push(renderParagraphTitle(item["title"]))
+        paragraphItems.push(renderParagraphTitle(item["title"], index));
+      } else if (item["text"]) {
+        paragraphItems.push(renderParagraphText(item["text"], index));
+      } else if (item["list"]) {
+        paragraphItems.push(renderParagraphList(item["list"], index));
+      } else if (item["code"]) {
+        paragraphItems.push(renderParagraphCode(item["code"], index));
       }
-    })
+    });
+
+    return paragraphItems;
   }
 
   const renderFurtherReadings = furtherReadings => {
@@ -86,51 +114,6 @@ const Contents = props => {
   return (
     <div className="content-page">
       {buildContent(content)}
-
-
-
-
-
-
-
-      {/* 
-
-      {content && content.map(val => {
-        return (
-          <Element key={val.key} name={`#${val.key}`} className="each-content">
-
-
-            {val.contents && val.contents.map((item, index) => {
-              return (
-                <div className="content-content" key={index}>
-                  <h3 className="content-title">{item.title}</h3>
-                  <p className="content-text">{item.text}</p>
-                  {item.code && (
-                    <>
-                      <h5 className="content-subject-title">Example Code</h5>
-                      <Highlight className="content-code" language="javascript">
-                        {`${item.code}`}
-                      </Highlight>
-                    </>
-                  )}
-                  {item.links && (
-                    <>
-                      <h5 className="content-subject-title">Further Readings</h5>
-                      <ul className="content-links">
-                        {item.links.map((link, index) => {
-                          return (
-                            <li key={index}><a className="content-links-item" href={link.url}>{link.title}</a></li>
-                          )
-                        })}
-                      </ul>
-                    </>
-                  )}
-                </div>
-              )
-            })}
-          </Element>
-        )
-      })} */}
     </div>
   )
 }
