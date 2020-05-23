@@ -43,7 +43,7 @@ const Contents = props => {
   }
 
   const renderParagraphList = (list, index) => {
-    return (<ul key={index}>
+    return (<ul className="para-list" key={index}>
       {list.map((item, i) => {
         return <li key={i}>{item}</li>
       })}
@@ -79,7 +79,7 @@ const Contents = props => {
   const renderFurtherReadings = furtherReadings => {
     return furtherReadings && furtherReadings.length > 0 ? (
       <>
-        <h5 className="content-subject-title">Further Readings</h5>
+        <h4 className="content-subject-title">Further Readings</h4>
         <ul className="content-links">
           {furtherReadings.map((item, index) => {
             return (
