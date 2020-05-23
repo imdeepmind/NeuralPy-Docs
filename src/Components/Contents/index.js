@@ -48,6 +48,21 @@ const Contents = props => {
     })
   }
 
+  const renderFurtherReadings = furtherReadings => {
+    return furtherReadings && furtherReadings.length > 0 ? (
+      <>
+        <h5 className="content-subject-title">Further Readings</h5>
+        <ul className="content-links">
+          {furtherReadings.map((item, index) => {
+            return (
+              <li key={index}><a className="content-links-item" href={item.url}>{item.title}</a></li>
+            )
+          })}
+        </ul>
+      </>
+    ) : null;
+  }
+
   const buildContent = contents => {
     const itemsToRender = [];
 
@@ -58,12 +73,14 @@ const Contents = props => {
           {renderSupportedArguments(item.supported_arguments)}
           {renderSubtitle(item.subtitle)}
           {renderParagraphs(item.paragraphs)}
+          {renderFurtherReadings(item.further_readings)}
+          {item.contents && buildContent(item.contents)}
         </Element>
       );
       itemsToRender.push(childItems);
     });
 
-    return itemsToRender[0];
+    return itemsToRender;
   }
 
   return (
