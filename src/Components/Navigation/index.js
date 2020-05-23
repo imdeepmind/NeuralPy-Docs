@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-scroll'
- 
+
 const buildLink = links => {
+  console.log("link", links)
   return (
     <ul>
       {links && links.map(val => {
         return (
           <li key={val.link}>
             <Link to={val.link} spy={true} smooth={true} offset={-20} duration={500} >{val.title}</Link>
-            {val.urls && val.urls.length > 0 && buildLink(val.urls)}
+            {val.contents && val.contents.length > 0 && buildLink(val.contents)}
           </li>
         )
       })}
@@ -16,7 +17,9 @@ const buildLink = links => {
   )
 }
 
-const Navigation = ({ navLinks }) => {
+const Navigation = (props) => {
+  const { navLinks } = props;
+
   const [key, setKey] = useState("");
   const [links, setLinks] = useState([]);
 
@@ -32,7 +35,7 @@ const Navigation = ({ navLinks }) => {
 
       if (item.urls && result < 0) {
         const childResults = searchList(item.urls, key);
-        
+
         searchedResults = childResults.length > 0 ? searchedResults.concat(childResults) : searchedResults;
       }
     });
@@ -56,6 +59,7 @@ const Navigation = ({ navLinks }) => {
   useEffect(() => {
     setLinks(navLinks)
   }, [navLinks]);
+
   return (
     <nav className="navigation">
       <input type="search" className="nav-search" placeholder="Search the documentation" value={key} onChange={handleSearch} />

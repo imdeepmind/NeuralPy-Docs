@@ -15,11 +15,10 @@ const Home = props => {
     if (loading) return <Loading />
 
     if (error) return <Error error={error} />
-
     return (
       <div className="row">
-        <div className="col-12 col-md-4 col-lg-3"><Navigation navLinks={content["navigation"]} /></div>
-        <div className="col-12 col-md-8 col-lg-9"><Contents content={content["content"]}/></div>
+        <div className="col-12 col-md-4 col-lg-3"><Navigation navLinks={content["contents"]} /></div>
+        <div className="col-12 col-md-8 col-lg-9"><Contents content={content["contents"]}/></div>
       </div>
     )
   }
