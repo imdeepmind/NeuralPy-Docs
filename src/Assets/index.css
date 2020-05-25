@@ -205,3 +205,30 @@ nav.navigation a{
 .content-page .content-links-item:hover{
   font-weight: 400;
 }
+
+
+
+
+
+.markdown-docs{
+  overflow: hidden;
+}
+
+.markdown-docs h1, h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.markdown-docs h1{
+  font-size: 2rem;
+}
+
+.markdown-docs h2{
+  font-size: 1.4rem;
+}
+
+.markdown-docs p{
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
