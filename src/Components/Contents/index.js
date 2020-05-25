@@ -1,6 +1,7 @@
 import React from 'react';
 import MarkDown from "react-markdown";
 import { Element } from "react-scroll";
+import Highlight from "react-highlight";
 
 // Code credit goes to https://github.com/shyaniv7
 const flatten = (text, child) => {
@@ -19,12 +20,22 @@ const HeadingRenderer = props => {
   return <Element name={slug}>{headerTag}</Element>
 };
 
+const CodeRenderer = ({value}) => {
+  return (
+    <Highlight className="content-code" language="javascript">
+      {`${value}`}
+    </Highlight>
+  )
+}
+
 const Contents = props => {
   const { docs } = props;
 
   return (
     <div className="markdown-docs">
-      <MarkDown source={docs} renderers={{ heading: HeadingRenderer }} />
+      <MarkDown source={docs} renderers={{ 
+        heading: HeadingRenderer,
+        code: CodeRenderer }} />
     </div>
   )
 }

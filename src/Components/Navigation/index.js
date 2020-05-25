@@ -13,7 +13,7 @@ const Navigation = (props) => {
         {links && links.map(val => {
           return (
             <li key={val.id}>
-              <Link to={val.id} spy={true} smooth={true} offset={-20} duration={500} >{val.title}</Link>
+              <Link to={val.id} spy={true} smooth={true} offset={-10} duration={500} >{val.title}</Link>
               {val.contents && val.contents.length > 0 && buildLink(val.contents)}
             </li>
           )

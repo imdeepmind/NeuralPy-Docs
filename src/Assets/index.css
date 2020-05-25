@@ -193,12 +193,3 @@ nav.navigation a{
   padding-right: 3px;
   padding-left: 3px;
 }
-
-.markdown-docs pre{
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
-  line-height: 2;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  overflow-x: scroll;
-}
