@@ -182,9 +182,16 @@ nav.navigation a{
 }
 
 .markdown-docs ul{
-  list-style: square;
+  list-style: outside;
   padding-left: 15px;
+  margin-left: 25px;
   margin-bottom: 10px;
+}
+
+.markdown-docs ul li code{
+  background-color: rgba(0, 0, 0, 0.1);
+  padding-right: 3px;
+  padding-left: 3px;
 }
 
 .markdown-docs pre{
