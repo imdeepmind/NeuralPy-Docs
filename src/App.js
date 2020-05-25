@@ -3,21 +3,29 @@ import Axios from "axios";
 
 import Home from "./Container/Home";
 
-const url = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/documentation-changes/docs/contents.json";
+const contentUrl = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/documentation-changes/docs/contents.json";
+const docUrl = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/documentation-changes/docs/DOCS.md";
 
 const App = () => {
-  const [content, setContent] = useState(null);
+  const [contents, setContent] = useState(null);
+  const [docs, setDocs] = useState(null);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const loadContent = async () => {
     setLoading(true);
     try {
-      if (!content) {
-        const data = await Axios.get(url);
+      if (!contents) {
+        const content = await Axios.get(contentUrl);
+        const docs = await Axios.get(docUrl);
 
-        if (data && data.data) {
-          setContent(data.data);
+        if (content && content.data) {
+          setContent(content.data);
+        }
+
+        if (docs && docs.data) {
+          setDocs(docs.data);
         }
       }
     } catch (error) {
@@ -34,7 +42,8 @@ const App = () => {
 
   return (
     <Home
-      content={content || {}}
+      contents={contents || {}}
+      docs={docs}
       loading={loading}
       error={error}
     />
