@@ -3,8 +3,8 @@ import Axios from "axios";
 
 import Home from "./Container/Home";
 
-const contentUrl = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/documentation-changes/docs/contents.json";
-const docUrl = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/documentation-changes/docs/DOCS.md";
+const contentUrl = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/master/docs/contents.json";
+const docUrl = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/master/docs/DOCS.md";
 
 const getDocumentationContents = async () => {
   const content = await Axios.get(contentUrl);
@@ -39,7 +39,7 @@ const doWeNeedToLoadNewDocumentation = () => {
 
   const currentTime = +new Date();
 
-  return currentTime - created_at > 259200;
+  return currentTime - created_at > 259200 * 1000;
 }
 
 const loadDocumentationData = async () => {
