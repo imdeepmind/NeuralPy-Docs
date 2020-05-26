@@ -27,6 +27,7 @@ const Navigation = (props) => {
 
     list.forEach(item => {
       const title = item.title.toLowerCase();
+      key = key.toLowerCase();
 
       const result = title.search(key);
 
