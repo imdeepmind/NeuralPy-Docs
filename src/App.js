@@ -21,40 +21,6 @@ const getDocumentationContents = async () => {
   return { 'contents': content.data, 'docs': docs.data };
 }
 
-const setDataOnLocalStorage = (contents, docs) => {
-  const data = {
-    contents, docs
-  }
-
-  localStorage.setItem('documentation', JSON.stringify(data));
-  localStorage.setItem('documentation_created_at', +new Date());
-}
-
-const getDataFromLocalStorage = () => {
-  return JSON.parse(localStorage.getItem('documentation'));
-}
-
-const doWeNeedToLoadNewDocumentation = () => {
-  const created_at = localStorage.getItem('documentation_created_at');
-
-  const currentTime = +new Date();
-
-  return currentTime - created_at > 259200 * 1000;
-}
-
-const loadDocumentationData = async () => {
-  let data = null;
-
-  if (doWeNeedToLoadNewDocumentation()) {
-    data = await getDocumentationContents();
-    setDataOnLocalStorage(data.contents, data.docs);
-  } else {
-    data = getDataFromLocalStorage();
-  }
-
-  return { 'contents': data.contents, 'docs': data.docs };
-}
-
 const App = () => {
   const [contents, setContent] = useState(null);
   const [docs, setDocs] = useState(null);
@@ -66,7 +32,7 @@ const App = () => {
     setLoading(true);
     try {
       if (!contents) {
-        const { contents, docs } = await loadDocumentationData();
+        const { contents, docs } = await getDocumentationContents();
 
         setContent(contents);
         setDocs(docs);
