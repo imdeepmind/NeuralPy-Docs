@@ -205,3 +205,19 @@ nav.navigation a{
   padding-right: 3px;
   padding-left: 3px;
 }
+
+.scroll-to-top{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid #ee4c2c;
+  color: #ee4c2c;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 400;
+}

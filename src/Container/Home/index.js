@@ -1,4 +1,5 @@
 import React from 'react';
+import { animateScroll as scroll } from "react-scroll";
 
 import Error from "../../Components/Error";
 
@@ -19,6 +20,7 @@ const Home = props => {
       <div className="row">
         <div className="col-12 col-md-4 col-lg-3"><Navigation navLinks={contents["contents"]} /></div>
         <div className="col-12 col-md-8 col-lg-9"><Contents docs={docs}/></div>
+        <button className="scroll-to-top" onClick={() => scroll.scrollToTop()}>Top</button>
       </div>
     )
   }
