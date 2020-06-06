@@ -14,7 +14,7 @@ const App = () => {
 
   const loadVersions = async () => {
     try {
-      const versionURL = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/add-documentation-version-support/docs/versions.json";
+      const versionURL = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/master/docs/versions.json";
       const versions = await Axios.get(versionURL);
 
       if (!versions && version.data) {
