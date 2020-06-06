@@ -10,8 +10,6 @@ import Header from "../../Components/Header";
 import Navigation from "../../Components/Navigation";
 import Contents from "../../Components/Contents";
 
-import 'react-dropdown/style.css';
-
 const Home = props => {
   const { contents, docs, versions, loading, error } = props;
 
@@ -23,19 +21,25 @@ const Home = props => {
     if (error) return <Error error={error} />
     return (
       <div className="row">
-        <div className="col-12 version-box">
-          <Dropdown options={versions}  value={versions[0]} placeholder="Select a version" />
-        </div>
-              
         <div className="col-12 col-md-4 col-lg-3"><Navigation navLinks={contents["contents"]} /></div>
-        <div className="col-12 col-md-8 col-lg-9"><Contents docs={docs}/></div>
+        <div className="col-12 col-md-8 col-lg-9"><Contents docs={docs} /></div>
         <button className="scroll-to-top" onClick={() => scroll.scrollToTop()}>Top</button>
+      </div>
+    )
+  }
+
+  const renderDropdown = () => {
+    return (
+      <div className="col-12 version-box">
+        <p><strong>NeuralPy Version:</strong></p>
+        <Dropdown options={versions} value={versions[0]} />
       </div>
     )
   }
 
   return (
     <div className="container">
+      {renderDropdown()}
       <Header />
       {buildPage()}
     </div>

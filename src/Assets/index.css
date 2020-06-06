@@ -93,7 +93,7 @@ h1{
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 50px;
   padding-bottom: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .header p{
@@ -229,4 +229,18 @@ blockquote {
 
 .version-box{
   margin-bottom: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.version-box p{
+  margin-right: 10px;
+}
+
+@media (min-width: 576px) {
+  .version-box {
+    justify-content: flex-end;
+  }
 }
