@@ -221,3 +221,8 @@ nav.navigation a{
   text-transform: uppercase;
   font-weight: 400;
 }
+
+blockquote {
+  border-left: 4px solid #ee4c2c9c;
+  padding-left: 10px;
+}
