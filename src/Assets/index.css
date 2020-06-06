@@ -93,7 +93,7 @@ h1{
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 50px;
   padding-bottom: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .header p{
@@ -225,4 +225,8 @@ nav.navigation a{
 blockquote {
   border-left: 4px solid #ee4c2c9c;
   padding-left: 10px;
+}
+
+.version-box{
+  margin-bottom: 20px;
 }
