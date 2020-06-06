@@ -6,50 +6,62 @@ import Home from "./Container/Home";
 const App = () => {
   const [contents, setContent] = useState(null);
   const [docs, setDocs] = useState(null);
-  const [docVersion, setDocVersion] = useState([{"label": "Latest", "value": "master"}]);
+  const [docVersion, setDocVersion] = useState([{"label": "Latest", "value": "master"}, {"label": "Latests", "value": "masters"}]);
+  const [selectedVersion, setSelectedVersion] = useState({"label": "Latest", "value": "master"});
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const loadVersions = async () => {
+    try {
+      const versionURL = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/add-documentation-version-support/docs/versions.json";
+      const versions = await Axios.get(versionURL);
+
+      if (!versions && version.data) {
+        throw new Error("Not able to load the versions list");
+      }
+
+      setDocVersion(versions.data);
+      loadContent();
+    } catch (error) {
+      setError(error);
+    }
+  }
+
   const loadContent = async () => {
     setLoading(true);
     try {
-      if (!contents) {
-        const contentUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${docVersion[0].value}/docs/contents.json`;
-        const docUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${docVersion[0].value}/docs/DOCS.md`;
-        const versionURL = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/add-documentation-version-support/docs/versions.json";
-
-        const content = await Axios.get(contentUrl);
-        const docs = await Axios.get(docUrl);
-        const versions = await Axios.get(versionURL);
-
-
-        if (!(content && content.data)) {
-          throw new Error("Not able to load the contents catalog");
-        }
+      const contentUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${selectedVersion.value}/docs/contents.json`;
+      const docUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${selectedVersion.value}/docs/DOCS.md`;
       
-        if (!(docs && docs.data)) {
-          throw new Error("Not able to load the documentation markdown files");
-        }
+      const content = await Axios.get(contentUrl);
+      const docs = await Axios.get(docUrl);
 
-        if (!versions && version.data) {
-          throw new Error("Not able to load the versions list");
-        }
-
-        setContent(content.data);
-        setDocs(docs.data);
-        setDocVersion(versions.data);
+      if (!(content && content.data)) {
+        throw new Error("Not able to load the contents catalog");
       }
+    
+      if (!(docs && docs.data)) {
+        throw new Error("Not able to load the documentation markdown files");
+      }
+
+      setContent(content.data);
+      setDocs(docs.data);
+      setError(null);
     } catch (error) {
       setError(error);
     }
     setLoading(false);
   }
 
+  const changeVersion = (selectedOption) => {
+    setSelectedVersion(selectedOption);
+  }
+
   useEffect(() => {
-    loadContent();
+    loadVersions();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [selectedVersion]);
 
   return (
     <Home
@@ -58,6 +70,8 @@ const App = () => {
       loading={loading}
       error={error}
       versions={docVersion}
+      selectedVersion={selectedVersion}
+      changeVersion={changeVersion}
     />
   );
 }

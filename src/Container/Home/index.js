@@ -11,9 +11,7 @@ import Navigation from "../../Components/Navigation";
 import Contents from "../../Components/Contents";
 
 const Home = props => {
-  const { contents, docs, versions, loading, error } = props;
-
-  console.log(versions);
+  const { contents, docs, versions, selectedVersion, changeVersion, loading, error } = props;
 
   const buildPage = () => {
     if (loading) return <Loading />
@@ -32,7 +30,7 @@ const Home = props => {
     return (
       <div className="col-12 version-box">
         <p><strong>NeuralPy Version:</strong></p>
-        <Dropdown options={versions} value={versions[0]} />
+        <Dropdown options={versions} value={selectedVersion} onChange={changeVersion} />
       </div>
     )
   }
