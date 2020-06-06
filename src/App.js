@@ -3,24 +3,6 @@ import Axios from "axios";
 
 import Home from "./Container/Home";
 
-const contentUrl = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/master/docs/contents.json";
-const docUrl = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/master/docs/DOCS.md";
-
-const getDocumentationContents = async () => {
-  const content = await Axios.get(contentUrl);
-  const docs = await Axios.get(docUrl);
-
-  if (!(content && content.data)) {
-    throw new Error("Not able to load the contents catalog");
-  }
-
-  if (!(docs && docs.data)) {
-    throw new Error("Not able to load the documentation markdown files");
-  }
-
-  return { 'contents': content.data, 'docs': docs.data };
-}
-
 const App = () => {
   const [contents, setContent] = useState(null);
   const [docs, setDocs] = useState(null);
@@ -35,7 +17,7 @@ const App = () => {
       if (!contents) {
         const contentUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${docVersion.id}/docs/contents.json`;
         const docUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${docVersion.id}/docs/DOCS.md`;
-        const versionURL = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/master/docs/versions.json";
+        const versionURL = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/add-documentation-version-support/docs/versions.json";
 
         const content = await Axios.get(contentUrl);
         const docs = await Axios.get(docUrl);
@@ -54,9 +36,9 @@ const App = () => {
           throw new Error("Not able to load the versions list");
         }
 
-        setContent(contents);
-        setDocs(docs);
-        setDocVersion(versions);
+        setContent(content.data);
+        setDocs(docs.data);
+        setDocVersion(versions.data);
       }
     } catch (error) {
       setError(error);
