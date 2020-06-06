@@ -10,7 +10,9 @@ import Navigation from "../../Components/Navigation";
 import Contents from "../../Components/Contents";
 
 const Home = props => {
-  const { contents, docs, loading, error } = props;
+  const { contents, docs, versions, loading, error } = props;
+
+  console.log(versions);
 
   const buildPage = () => {
     if (loading) return <Loading />
@@ -18,6 +20,8 @@ const Home = props => {
     if (error) return <Error error={error} />
     return (
       <div className="row">
+        {/* <Dropdown options={options} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" /> */}
+              
         <div className="col-12 col-md-4 col-lg-3"><Navigation navLinks={contents["contents"]} /></div>
         <div className="col-12 col-md-8 col-lg-9"><Contents docs={docs}/></div>
         <button className="scroll-to-top" onClick={() => scroll.scrollToTop()}>Top</button>

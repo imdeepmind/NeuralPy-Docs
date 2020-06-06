@@ -6,7 +6,7 @@ import Home from "./Container/Home";
 const App = () => {
   const [contents, setContent] = useState(null);
   const [docs, setDocs] = useState(null);
-  const [docVersion, setDocVersion] = useState({"name": "Latest", "id": "master"});
+  const [docVersion, setDocVersion] = useState([{"label": "Latest", "value": "master"}]);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,8 +15,8 @@ const App = () => {
     setLoading(true);
     try {
       if (!contents) {
-        const contentUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${docVersion.id}/docs/contents.json`;
-        const docUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${docVersion.id}/docs/DOCS.md`;
+        const contentUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${docVersion[0].value}/docs/contents.json`;
+        const docUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${docVersion[0].value}/docs/DOCS.md`;
         const versionURL = "https://raw.githubusercontent.com/imdeepmind/NeuralPy/add-documentation-version-support/docs/versions.json";
 
         const content = await Axios.get(contentUrl);
@@ -57,6 +57,7 @@ const App = () => {
       docs={docs}
       loading={loading}
       error={error}
+      versions={docVersion}
     />
   );
 }
