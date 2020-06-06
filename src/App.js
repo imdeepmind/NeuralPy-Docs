@@ -6,7 +6,7 @@ import Home from "./Container/Home";
 const App = () => {
   const [contents, setContent] = useState(null);
   const [docs, setDocs] = useState(null);
-  const [docVersion, setDocVersion] = useState([{"label": "Latest", "value": "master"}, {"label": "Latests", "value": "masters"}]);
+  const [docVersion, setDocVersion] = useState([{"label": "Latest", "value": "master"}]);
   const [selectedVersion, setSelectedVersion] = useState({"label": "Latest", "value": "master"});
 
   const [loading, setLoading] = useState(true);
