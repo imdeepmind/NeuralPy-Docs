@@ -22,17 +22,18 @@ const App = () => {
       }
 
       setDocVersion(versions.data);
-      loadContent();
+      loadContent(versions.data);
     } catch (error) {
       setError(error);
     }
   }
 
-  const loadContent = async () => {
+  const loadContent = async (versions) => {
     setLoading(true);
     try {
-      const contentUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${selectedVersion.value}/docs/contents.json`;
-      const docUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${selectedVersion.value}/docs/DOCS.md`;
+      const selectedDoc = selectedVersion ? selectedVersion.value : versions[0].value;
+      const contentUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${selectedDoc}/docs/contents.json`;
+      const docUrl = `https://raw.githubusercontent.com/imdeepmind/NeuralPy/${selectedDoc}/docs/DOCS.md`;
       
       const content = await Axios.get(contentUrl);
       const docs = await Axios.get(docUrl);
