@@ -7,7 +7,7 @@ const App = () => {
   const [contents, setContent] = useState(null);
   const [docs, setDocs] = useState(null);
   const [docVersion, setDocVersion] = useState([{"label": "Latest", "value": "master"}]);
-  const [selectedVersion, setSelectedVersion] = useState({"label": "Latest", "value": "master"});
+  const [selectedVersion, setSelectedVersion] = useState(null);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

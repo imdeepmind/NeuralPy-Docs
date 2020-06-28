@@ -30,7 +30,7 @@ const Home = props => {
     return (
       <div className="col-12 version-box">
         <p><strong>NeuralPy Version:</strong></p>
-        <Dropdown options={versions} value={selectedVersion} onChange={changeVersion} />
+        <Dropdown options={versions} value={selectedVersion || versions[0]} onChange={changeVersion} />
       </div>
     )
   }
