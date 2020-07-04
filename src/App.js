@@ -6,6 +6,7 @@ import Installation from "./Container/Installation";
 import Error from "./Container/Error";
 
 import NavBar from "./Components/NavBar";
+import Footer from "./Components/Footer";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="*" component={Error} />
         </Switch>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 };
