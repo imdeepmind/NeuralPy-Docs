@@ -23,27 +23,27 @@ const GitHub = (props) => {
         Some Stats
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={4}>
           <Card>
             <CardContent>
               <Typography gutterBottom variant="h3" component="h3" align="center">
                 69
               </Typography>
-              <Typography align="center">GitHub Stars</Typography>
+              <Typography align="center">Stars</Typography>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={4}>
           <Card>
             <CardContent>
               <Typography gutterBottom variant="h3" component="h3" align="center">
                 4
               </Typography>
-              <Typography align="center">GitHub Open Issues</Typography>
+              <Typography align="center">Open Issues</Typography>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={4}>
           <Card>
             <CardContent>
               <Typography gutterBottom variant="h3" component="h3" align="center">

@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, makeStyles, Button } from "@material-ui/core";
+import { Typography, makeStyles, Button, Grid } from "@material-ui/core";
 
 import logo from "../../Assets/Images/logo.png";
 
@@ -14,10 +14,8 @@ const styles = (theme) => ({
   logo: {
     width: 200,
   },
-  buttonsBox: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+  buttonBox: {
+      display: "flex"
   },
   button: {
     margin: 10,
@@ -32,19 +30,39 @@ const Hero = (props) => {
   return (
     <div className={classes.root}>
       <img className={classes.logo} src={logo} alt="Logo" />
-      <Typography>
+      <Typography align="center">
         A Keras like Deep Learning Library that works on top of PyTorch
       </Typography>
-      <div className={classes.buttonsBox}>
-        <Button variant="outlined" color="primary" className={classes.button}>
-          Get Started
-        </Button>
-        <Button variant="outlined" color="primary" className={classes.button}>
-          Installation
-        </Button>
-        <Button variant="outlined" color="primary" className={classes.button}>
-          Documentation
-        </Button>
+      <div>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={4} justify="center" className={classes.buttonBox}>
+            <Button
+              variant="outlined"
+              color="primary"
+              className={classes.button}
+            >
+              Get Started
+            </Button>
+          </Grid>
+          <Grid item xs={12} sm={4} justify="center" className={classes.buttonBox}>
+            <Button
+              variant="outlined"
+              color="primary"
+              className={classes.button}
+            >
+              Installation
+            </Button>
+          </Grid>
+          <Grid item xs={12} sm={4} justify="center" className={classes.buttonBox}>
+            <Button
+              variant="outlined"
+              color="primary"
+              className={classes.button}
+            >
+              Documentation
+            </Button>
+          </Grid>
+        </Grid>
       </div>
     </div>
   );
