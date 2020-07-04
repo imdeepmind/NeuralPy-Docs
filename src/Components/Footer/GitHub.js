@@ -3,8 +3,6 @@ import {
   Container,
   makeStyles,
   Grid,
-  Card,
-  CardContent,
   Typography,
 } from "@material-ui/core";
 
