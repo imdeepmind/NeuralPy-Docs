@@ -3,6 +3,7 @@ import { Container, makeStyles } from "@material-ui/core";
 
 import Hero from "./Hero";
 import Features from "./Features";
+import GitHub from "./GitHub";
 
 const styles = (theme) => ({
   root: {},
@@ -16,6 +17,7 @@ const Home = (props) => {
     <Container className={classes.root}>
       <Hero />
       <Features />
+      <GitHub></GitHub>
     </Container>
   );
 };
