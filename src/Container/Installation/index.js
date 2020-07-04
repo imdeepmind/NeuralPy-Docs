@@ -1,9 +1,19 @@
 import React from "react";
+import { Container, makeStyles } from "@material-ui/core";
 
-const Installation = props => {
-    return (
-        <h1>Installation Page</h1>
-    );
-}
+const styles = (theme) => ({
+  root: {},
+});
+
+const useStyles = makeStyles(styles);
+
+const Installation = (props) => {
+  const classes = useStyles();
+  return (
+    <Container className={classes.root}>
+      
+    </Container>
+  );
+};
 
 export default Installation;
