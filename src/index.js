@@ -11,6 +11,12 @@ import './index.css';
 const theme = createMuiTheme({
   palette: {
     primary: red
+  },
+  shadows: [
+    "none"
+  ],
+  shape: {
+    borderRadius: 0
   }
 });
 
