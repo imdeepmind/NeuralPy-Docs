@@ -7,6 +7,7 @@ import Error from "../../Components/Error";
 import Loading from "../../Components/Loading";
 
 import Header from "../../Components/Header";
+import Highlights from "../../Components/Highlights";
 import Navigation from "../../Components/Navigation";
 import Contents from "../../Components/Contents";
 
@@ -39,6 +40,7 @@ const Home = props => {
     <div className="container">
       {renderDropdown()}
       <Header />
+      <Highlights />
       {buildPage()}
     </div>
   )
