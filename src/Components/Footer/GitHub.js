@@ -25,7 +25,7 @@ const GitHub = (props) => {
             align="center"
             color="primary"
           >
-            69
+            {props.repoData.stars}
           </Typography>
           <Typography align="center" color="primary">
             Stars
@@ -39,7 +39,7 @@ const GitHub = (props) => {
             align="center"
             color="primary"
           >
-            4
+            {props.repoData.open_issues}
           </Typography>
           <Typography align="center" color="primary">
             Open Issues
@@ -53,7 +53,7 @@ const GitHub = (props) => {
             component="h3"
             align="center"
           >
-            MIT
+            {props.repoData.license}
           </Typography>
           <Typography align="center" color="primary">
             License
