@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 Axios.defaults.baseURL =
-  "https://raw.githubusercontent.com/imdeepmind/NeuralPy/master/docs/";
+  "https://raw.githubusercontent.com/imdeepmind/NeuralPy/new-documentation-format/docs/";
 Axios.defaults.timeout = 1000;
 
 Axios.interceptors.response.use(
@@ -24,7 +24,7 @@ export const LoadContentsAPI = async () => {
 
 export const LoadDocsAPI = async (url) => {
   try {
-    return await Axios.get(url);
+    return await Axios.get(`${url}.md`);
   } catch (error) {
     throw new Error("Can not load the documentation");
   }

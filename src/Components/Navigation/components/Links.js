@@ -10,7 +10,7 @@ const Links = ({ contents }) => {
             return (
               <li key={val.id}>
                 <Link
-                  to={val.url}
+                  to={`/docs${val.url}`}
                 >
                   {val.title}
                 </Link>
