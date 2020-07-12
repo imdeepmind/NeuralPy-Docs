@@ -24,7 +24,7 @@ a, p, span, li{
 }
 
 strong, b, h1, h2, h3, h4, h5, h6{
-  font-weight: 500;
+  font-weight: 400;
 }
 
 a{
@@ -223,32 +223,4 @@ nav.navigation a{
 blockquote {
   border-left: 4px solid #ee4c2c9c;
   padding-left: 10px;
-}
-
-.version-box{
-  margin-bottom: 20px;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.version-box p{
-  margin-right: 10px;
-}
-
-@media (min-width: 576px) {
-  .version-box {
-    justify-content: flex-end;
-  }
-}
-
-.highlights {
-  padding-bottom: 50px;
-  margin-bottom: 50px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-.highlights h2{
-  text-align: center;
-  margin-bottom: 30px;
 }

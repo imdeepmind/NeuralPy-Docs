@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 import Documentation from "./components/Documentation";
 import Loading from "../Loading";
+import Error from "../Error";
 
 import { LoadDocsAPI } from "../../APIs";
 
 const Contents = (props) => {
   const [docs, setDocs] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const url = props.match.params["page_name"];
 
   useEffect(() => {
@@ -20,15 +22,23 @@ const Contents = (props) => {
         setLoading(false);
       } catch (error) {
         setLoading(false);
+        setError(error);
       }
-    }
+    };
 
     loadDocs();
   }, [url]);
 
-  if (loading) return <div className="loading-page"><Loading /></div>
+  if (loading)
+    return (
+      <div className="loading-page">
+        <Loading />
+      </div>
+    );
 
-  return <Documentation docs={docs} />
-}
+  if (error) return <Error error={error} />;
+
+  return <Documentation docs={docs} />;
+};
 
 export default Contents;
