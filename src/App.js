@@ -3,7 +3,7 @@ import React from "react";
 import Header from "./Components/Header";
 import Navigation from "./Components/Navigation";
 import Contents from "./Components/Contents";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 const NeuralPy = () => {
   return (
@@ -15,7 +15,9 @@ const NeuralPy = () => {
             <Navigation />
           </div>
           <div className="col-12 col-md-8 col-lg-9">
-            <Contents />
+            <Switch>
+              <Route path={"/docs/:page_name"} component={Contents} />
+            </Switch>
           </div>
         </div>
       </div>
