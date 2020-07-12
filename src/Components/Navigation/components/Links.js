@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 
 const Links = ({ contents }) => {
   const buildLink = (links) => {
@@ -10,11 +10,7 @@ const Links = ({ contents }) => {
             return (
               <li key={val.id}>
                 <Link
-                  to={val.id}
-                  spy={true}
-                  smooth={true}
-                  offset={-10}
-                  duration={500}
+                  to={val.url}
                 >
                   {val.title}
                 </Link>

@@ -7,15 +7,33 @@ import Links from "./components/Links";
 
 const Navigation = () => {
   const [contents, setContents] = useState([]);
-  const [backupContents, setBackupContents]= useState([]);
+  const [backupContents, setBackupContents] = useState([]);
 
   useEffect(() => {
+    const addLinks = (links, id) => {
+      return {
+        ...links,
+        url: `/${id}#${links.id}`,
+        contents:
+          links.contents && links.contents.length > 0
+            ? links.contents.map((val) => addLinks(val, id))
+            : null,
+      };
+    };
+
+    const buildLinks = (links) => {
+      const contents = links.contents;
+
+      return contents.map((val) => addLinks(val, val.id));
+    };
+
     const loadContents = async () => {
       try {
         const data = await LoadContentsAPI();
+        const links = buildLinks(data);
 
-        setContents(data.contents);
-        setBackupContents(data.contents);
+        setContents(links);
+        setBackupContents(links);
       } catch (error) {
         //TODO
       }
