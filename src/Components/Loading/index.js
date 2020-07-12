@@ -1,12 +1,9 @@
-import React from 'react'
+import React from "react";
 
-const Loading = () => {
-  return (
-    <div className="loading-page">
-      <h2>Hold right</h2>
-      <p>we're loading content for you</p>
-    </div>
-  )
-}
+import loading from "../../Assets/loader.gif";
+
+const Loading = ({ className }) => {
+  return <img className={className} alt="Loading..." src={loading} />;
+};
 
 export default Loading;

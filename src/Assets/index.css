@@ -114,12 +114,10 @@ h1{
 
 /*LOADING PAGE*/
 .loading-page{
-  text-align: center;
-  padding: 25px;
-}
-
-.loading-page h2{
-  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*NAVIGATION*/

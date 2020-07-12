@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Documentation from "./components/Documentation";
+import Loading from "../Loading";
 
 import { LoadDocsAPI } from "../../APIs";
 
@@ -25,7 +26,7 @@ const Contents = (props) => {
     loadDocs();
   }, [url]);
 
-  if (loading) return <p>loading</p>
+  if (loading) return <div className="loading-page"><Loading /></div>
 
   return <Documentation docs={docs} />
 }
