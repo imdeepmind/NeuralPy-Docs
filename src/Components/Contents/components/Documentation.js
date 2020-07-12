@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import MarkDown from "react-markdown";
-import { Element } from "react-scroll";
 import Highlight from "react-highlight";
+import { Element, scroller } from "react-scroll";
 
 // Code credit goes to https://github.com/shyaniv7
 const flatten = (text, child) => {
@@ -33,7 +33,11 @@ const CodeRenderer = ({ value }) => {
   );
 };
 
-const Documentation = ({ docs }) => {
+const Documentation = ({ docs, hash }) => {
+  useEffect(() => {
+    scroller.scrollTo(hash);
+  }, [docs, hash]);
+
   return (
     <div className="markdown-docs">
       <MarkDown

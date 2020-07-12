@@ -10,7 +10,9 @@ const Contents = (props) => {
   const [docs, setDocs] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
   const url = props.match.params["page_name"];
+  const hash = props.location.hash;
 
   useEffect(() => {
     const loadDocs = async () => {
@@ -20,6 +22,7 @@ const Contents = (props) => {
 
         setDocs(data);
         setLoading(false);
+        setError(null);
       } catch (error) {
         setLoading(false);
         setError(error);
@@ -38,7 +41,7 @@ const Contents = (props) => {
 
   if (error) return <Error error={error} />;
 
-  return <Documentation docs={docs} />;
+  return <Documentation docs={docs} hash={hash} />;
 };
 
 export default Contents;
